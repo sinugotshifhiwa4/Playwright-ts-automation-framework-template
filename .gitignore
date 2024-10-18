@@ -1,0 +1,23 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Ignore the .env file
+.env
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore authentication data
+.auth/
+
+# Ignore log files
+/logs/
+
+# Ignore report files
+/reports/
+
+/allure-report/
+/allure-results/

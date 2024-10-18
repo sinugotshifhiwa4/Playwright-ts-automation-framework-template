@@ -1,0 +1,54 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "axios": "^1.7.7",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "moment-timezone": "^0.5.46",
+    "ortoni-report": "^2.0.4",
+    "playwright": "^1.48.1",
+    "typescript-eslint": "^8.9.0",
+    "winston": "^3.15.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "name": "playwright-typescript-automation-framework-template",
+  "version": "1.0.0",
+  "description": "playwright typescript automation framework template for both ui and api",
+  "main": "index.js",
+  "scripts": {
+    "generate:secret": "npx ts-node tests/encryption/generateSecretKey.ts",
+    "pretest:uat": "tsc --noEmit && eslint tests/**",
+    "encrypt:env": "npx ts-node tests/encryption/dataEncryption.ts",
+    "test:auth": "cross-env ENV=uat npx playwright test session.setup.ts --headed",
+    "test:uat": "cross-env ENV=uat npx playwright test --project=chromium",
+    "report": "npx playwright show-report",
+    "allure": "npx allure generate ./allure-results --clean && npx allure open ./allure-report/",
+    "record": "npx playwright codegen",
+    "ui": "npx playwright test --ui"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "template",
+    "encryption (AES with IV padding)",
+    "multiple environments",
+    "network interceptor",
+    "winston logger",
+    "authenticated storage state",
+    "ortoni report",
+    "ESLint"
+  ],
+  "author": "Tshifhiwa Sinugo",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.48.1",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@typescript-eslint/parser": "^8.9.0",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.5",
+    "typescript": "^5.6.3"
+  }
+}
