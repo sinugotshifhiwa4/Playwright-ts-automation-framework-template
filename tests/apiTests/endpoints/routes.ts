@@ -30,9 +30,8 @@ export default class Routes {
 
   async createUserUrl(): Promise<string> {
     try {
-      const endpoint = "/public/v2/users";
 
-      return this.generateUrl(endpoint, "Create User");
+      return this.generateUrl(this.usersEndpoint(), "Create User");
     } catch (error) {
       ErrorHandler.handleError(
         error,
@@ -132,5 +131,9 @@ export default class Routes {
    */
   private getUserEndpoint(userId: string): string {
     return `/public/v2/users/${userId}`;
+  }
+
+  private usersEndpoint(): string {
+    return "/public/v2/users";
   }
 }
